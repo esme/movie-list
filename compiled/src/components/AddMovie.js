@@ -1,0 +1,15 @@
+const AddMovie = props => React.createElement(
+  "div",
+  { className: "AddMovie" },
+  React.createElement("input", { placeholder: "Add movie title here",
+    value: props.addMovieText,
+    onChange: props.addChangeHandler }),
+  React.createElement(
+    "button",
+    { className: "btn-success", onClick: props.addSubmitHandler },
+    "Add"
+  )
+);
+
+export default AddMovie;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9jb21wb25lbnRzL0FkZE1vdmllLmpzeCJdLCJuYW1lcyI6WyJBZGRNb3ZpZSIsInByb3BzIiwiYWRkTW92aWVUZXh0IiwiYWRkQ2hhbmdlSGFuZGxlciIsImFkZFN1Ym1pdEhhbmRsZXIiXSwibWFwcGluZ3MiOiJBQUFBLE1BQU1BLFdBQVlDLEtBQUQsSUFDZjtBQUFBO0FBQUEsSUFBSyxXQUFVLFVBQWY7QUFDRSxpQ0FBTyxhQUFZLHNCQUFuQjtBQUNFLFdBQU9BLE1BQU1DLFlBRGY7QUFFRSxjQUFVRCxNQUFNRSxnQkFGbEIsR0FERjtBQUlFO0FBQUE7QUFBQSxNQUFRLFdBQVUsYUFBbEIsRUFBZ0MsU0FBU0YsTUFBTUcsZ0JBQS9DO0FBQUE7QUFBQTtBQUpGLENBREY7O0FBU0EsZUFBZUosUUFBZiIsImZpbGUiOiJBZGRNb3ZpZS5qcyIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IEFkZE1vdmllID0gKHByb3BzKSA9PiAoXG4gIDxkaXYgY2xhc3NOYW1lPVwiQWRkTW92aWVcIj5cbiAgICA8aW5wdXQgcGxhY2Vob2xkZXI9XCJBZGQgbW92aWUgdGl0bGUgaGVyZVwiIFxuICAgICAgdmFsdWU9e3Byb3BzLmFkZE1vdmllVGV4dH1cbiAgICAgIG9uQ2hhbmdlPXtwcm9wcy5hZGRDaGFuZ2VIYW5kbGVyfT48L2lucHV0PlxuICAgIDxidXR0b24gY2xhc3NOYW1lPVwiYnRuLXN1Y2Nlc3NcIiBvbkNsaWNrPXtwcm9wcy5hZGRTdWJtaXRIYW5kbGVyfT5BZGQ8L2J1dHRvbj5cbiAgPC9kaXY+XG4pO1xuXG5leHBvcnQgZGVmYXVsdCBBZGRNb3ZpZTsiXX0=

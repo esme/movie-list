@@ -1,0 +1,91 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+.Title {
+  font-weight: bold;
+}
+
+.Movies {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.MovieList {
+  border: 1px solid #222;
+  padding: 20px;
+}
+
+.MovieTitle {
+  /* height: 30px; */
+}
+
+.MovieTitle li {
+  text-decoration: none;
+  list-style: none;
+  display: block;
+  cursor: pointer;
+}
+
+.MovieTitle button {
+  font-size: 14px;
+  float: right;
+  height: 22px;
+  width: 80px;
+}
+
+.Search {
+  font-size: 14px;
+  float: right;
+}
+
+.Search input, .AddMovie input {
+  width: 80%;
+  padding: 4px;
+}
+
+.Search button, .AddMovie button {
+  width: 15%;
+  padding: 4px;
+}
+
+.AddMovie {
+  font-size: 14px;
+}
+
+.btn-active {
+  padding: 8px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #28a745;
+  border: 1px solid #ccc;
+}
+
+.btn-inactive {
+  padding: 8px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+button:focus {outline:0;}
+
+.Header {
+  padding: 10px 0 0 0;
+}
+
+.MovieInfo {
+  padding: 10px;
+}
+
+.MovieInfo p {
+  padding: 10px 0;
+}
+
+.MovieInfo button {
+  float: left;
+}
