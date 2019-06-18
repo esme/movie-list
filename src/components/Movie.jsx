@@ -22,19 +22,25 @@ class Movie extends React.Component {
     if(this.state.movieClicked) {
       movieInfo =
       <div className="MovieInfo">
-        <li>Year: 1995</li>
-        <li>Runtime: 107 min</li>
-        <li>Metascore: 46</li>
-        <li>IMDB Rating: 6.2</li>
-        <p><button 
+        <li>Year: {this.props.movie.release_date.slice(0,4)}</li>
+        <li>Popularity: {this.props.movie.popularity}</li>
+        <li>Vote Average: {this.props.movie.vote_average}</li>
+        <li>Vote Count: {this.props.movie.vote_count}</li>
+        <label>Watched: </label>
+        <input type="radio" 
+          checked={this.props.watchedList ? true : false}
+          onChange={() => this.props.addWatchedHandler(this.props.movie, this.props.watchedList)}/>
+        
+        {/* <p><button 
           className={this.props.watchedList ? "btn-success" : "btn-outline-success"}
           onClick={() => this.props.addWatchedHandler(this.props.movie, this.props.watchedList)}>
-          {this.props.watchedList ? 'watched' : 'watch'}</button></p>
+          {this.props.watchedList ? 'watched' : 'watch'}</button></p> */}
       </div>
     }
     return (
-      <div className="MovieTitle">
-      <li onClick={this.movieClickedHandler}>{this.props.movie.title}</li>
+      <div className="Movie">
+      <li className="MovieTitle"
+        onClick={this.movieClickedHandler}>{this.props.movie.title}</li>
       {movieInfo}
       </div>
     );

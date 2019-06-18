@@ -2,13 +2,13 @@ import Movie from './Movie.js';
 import Search from './Search.js'
 import AddMovie from './AddMovie.js';
 
-var movies = [
-  {title: 'Mean Girls'},
-  {title: 'Hackers'},
-  {title: 'The Grey'},
-  {title: 'Sunshine'},
-  {title: 'Ex Machina'},
-];
+// var movies = [
+//   {title: 'Mean Girls'},
+//   {title: 'Hackers'},
+//   {title: 'The Grey'},
+//   {title: 'Sunshine'},
+//   {title: 'Ex Machina'},
+// ];
 
 class App extends React.Component {
   constructor(props) {
@@ -17,10 +17,11 @@ class App extends React.Component {
     this.state = {
       searchText: '',
       addMovieText: '',
-      movies: movies,
-      watchedMovies: [{title: 'Harry Potter'}],
-      toWatchMovies: movies,
+      watchedMovies: [],
+      toWatchMovies: [],
+      movies: [],
       watchedList: false,
+      loaded: false
     }
     this.searchChangeHandler = this.searchChangeHandler.bind(this);
     this.searchSubmitHandler = this.searchSubmitHandler.bind(this);
@@ -29,6 +30,18 @@ class App extends React.Component {
     this.addWatchedHandler = this.addWatchedHandler.bind(this);
     this.filterWatchedHandler = this.filterWatchedHandler.bind(this);
     this.filterToWatchHandler = this.filterToWatchHandler.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('mounted!')
+    this.props.getMovieData((response) => {
+      this.setState({
+        watchedMovies: response.slice(15,20),
+        toWatchMovies: response.slice(0,15),
+        movies: response.slice(0,15),
+        loaded: true
+      })
+    })
   }
 
   searchChangeHandler(e) {
@@ -55,10 +68,11 @@ class App extends React.Component {
 
   addSubmitHandler() {
     console.log('add!');
-    let arr = [...this.state.movies];
-    arr.push({title: this.state.addMovieText});
+    let toWatchArr = [...this.state.toWatchMovies];
+    console.log(toWatchArr);
+    toWatchArr.push({title: this.state.addMovieText});
     this.setState({
-      movies: arr,
+      toWatchMovies: toWatchArr,
       addMovieText: ''
     })
   }
@@ -128,6 +142,18 @@ class App extends React.Component {
   }
 
   render() {
+    let movieList = <div>Loading...</div>
+    if(this.state.loaded) {
+      movieList = <ul className="MovieList">
+      {this.state.movies.map((el, i) => 
+        <Movie 
+          movie={el} 
+          key={el.title}
+          watchSubmitHandler={this.watchSubmitHandler} 
+          addWatchedHandler={this.addWatchedHandler} 
+          watchedList={this.state.watchedList} />)}
+      </ul>
+    }
     return (
       <div className="Movies">
       <p className="Title">Movie List</p>
@@ -150,15 +176,7 @@ class App extends React.Component {
             searchSubmitHandler={this.searchSubmitHandler}
             searchText={this.state.searchText} />
         </div>
-        <ul className="MovieList">
-          {this.state.movies.map((el, i) => 
-            <Movie 
-              movie={el} 
-              key={el.title}
-              watchSubmitHandler={this.watchSubmitHandler} 
-              addWatchedHandler={this.addWatchedHandler} 
-              watchedList={this.state.watchedList} />)}
-        </ul>
+        {movieList}
       </div>
     </div>
     );

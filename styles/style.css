@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .Title {
@@ -22,16 +22,19 @@
 
 .MovieTitle {
   /* height: 30px; */
+  font-weight: bold;
+  
 }
 
-.MovieTitle li {
+.Movie li {
   text-decoration: none;
   list-style: none;
   display: block;
   cursor: pointer;
+  padding: 2px 0;
 }
 
-.MovieTitle button {
+.Movie button {
   font-size: 14px;
   float: right;
   height: 22px;
@@ -88,4 +91,8 @@ button:focus {outline:0;}
 
 .MovieInfo button {
   float: left;
+}
+
+.MovieInfo label {
+  margin: 2px 10px 2px 0;
 }
