@@ -22,6 +22,7 @@ class Movie extends React.Component {
     if(this.state.movieClicked) {
       movieInfo =
       <div className="MovieInfo">
+        <img src={`https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`}></img>
         <li>Year: {this.props.movie.release_date.slice(0,4)}</li>
         <li>Popularity: {this.props.movie.popularity}</li>
         <li>Vote Average: {this.props.movie.vote_average}</li>
