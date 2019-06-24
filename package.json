@@ -4,14 +4,20 @@
   "description": "Movie List App",
   "main": "index.js",
   "scripts": {
-    "test": "live-server --open=./index.html --port=8081",
+    "live-server": "live-server --open=./index.html --port=8081",
     "compile": "babel . -w --out-dir compiled --presets=react --ignore=node_modules,compiled --source-maps inline",
-    "start": "npm run compile & npm run test"
+    "start": "npm run compile & npm run live-server",
+    "server": "nodemon ./server/index.js"
   },
   "author": "Esme",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.5.5",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.0.0-alpha.2",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
     "jquery": "^2.2.1",
     "lodash": "^4.6.1",
     "react": "^0.14.7",
